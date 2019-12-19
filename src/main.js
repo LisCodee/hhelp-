@@ -6,8 +6,9 @@ import './plugins/element.js'
 import './assets/css/global.css'
 
 import axios from 'axios'
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
+axios.defaults.baseURL = 'http://180.76.184.216/api/'
 Vue.prototype.$http = axios
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 
