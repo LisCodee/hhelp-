@@ -34,7 +34,7 @@
         </el-aside>
         <!-- main是主题模块 -->
         <el-main>
-          主区域
+          <!-- 主区域 功能区 -->
           <router-view></router-view>
         </el-main>
       </el-container>
