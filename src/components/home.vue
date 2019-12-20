@@ -3,10 +3,16 @@
     <el-container class="h_container">
       <!-- 顶边栏 -->
       <el-header height="82px">
-          <!-- 头像，鼠标移入出现个人设置 -->
-        <span class="user-center el-icon-user-solid" style="cursor: pointer;" @mouseenter="showmenu"></span>
-        <div class="personal" >
-            个人设置
+        <!-- 个人中心 -->
+        <div class="person-center">
+          <el-menu class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-submenu index="user-center">
+              <template slot="title">个人中心</template>
+              <el-menu-item index="/modify">修改资料</el-menu-item>
+              <el-menu-item index="/toexpert">成为专家</el-menu-item>
+              <el-menu-item index="logout">退出登录</el-menu-item>
+            </el-submenu>
+          </el-menu>
         </div>
       </el-header>
       <el-container>
@@ -23,9 +29,7 @@
             <el-row
               :index="item.id"
               :class="selectedId == item.id ? 'selected' : null"
-            >
-              {{ item.name }}
-            </el-row>
+            >{{ item.name }}</el-row>
           </span>
         </el-aside>
         <!-- main是主题模块 -->
@@ -51,16 +55,23 @@ export default {
         { name: '在线挂号', id: '7', path: '/sendby' },
         { name: '智能备忘', id: '8', path: '/memo' }
       ],
-      selectedId: '1'
+      selectedId: '1',
+      isshowmenu: false
     }
   },
   methods: {
     selectMenu(id, path) {
       console.log(path)
       this.selectedId = id
+      this.$router.push(path)
     },
-    showmenu(){
-        console.log("鼠标移入")
+    handleSelect(key, keyPath) {
+      if (key === 'logout') {
+        window.sessionStorage.clear()
+        this.$router.replace('/userlogin')
+      } else {
+        this.$router.push(key)
+      }
     }
   }
 }
@@ -83,8 +94,8 @@ element.style {
   line-height: 82px;
 }
 .el-aside {
-  margin-top: 50px;
-  margin-left: 30px;
+  margin-top: 8%;
+  margin-left: 7%;
   text-align: center;
   line-height: 45px;
 }
@@ -105,8 +116,14 @@ element.style {
 .h_container {
   height: 100%;
 }
-.user-center {
-  font-size: 40px;
-  color: white;
+.person-center {
+  display: inline-block;
+  width: 55%;
+}
+.el-menu.el-menu--horizontal {
+  border-bottom: solid 1px #e6e6e6;
+  width: 12%;
+  transform: translate(750%, 45%);
+  /* transform: translateY(5%); */
 }
 </style>

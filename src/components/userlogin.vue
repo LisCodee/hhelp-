@@ -89,7 +89,7 @@ export default {
       })
     },
     register(){
-        this.$router.push('/rigister')
+        this.$router.push('/register')
     }
   }
 }
