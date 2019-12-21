@@ -94,7 +94,7 @@ element.style {
   line-height: 82px;
 }
 .el-aside {
-  margin-top: 8%;
+  margin-top: 12%;
   margin-left: 7%;
   text-align: center;
   line-height: 45px;

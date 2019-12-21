@@ -49,6 +49,7 @@ const routes = [
       { path: '/sport', component: sport },
       // 成为专家
       { path: '/toexpert', component: toexpert },
+
     ]
   }
 ]
