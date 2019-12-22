@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/home',
     component: home,
-    redirect: '/welcome',
+    redirect: '/pharmacy',
     children: [
       { path: '/welcome', component: welcome },
       // 忌吃清单
