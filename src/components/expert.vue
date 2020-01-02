@@ -1,5 +1,7 @@
 <template>
-    
+    <div>
+        对话专家
+    </div>
 </template>
 <script>
 export default {
