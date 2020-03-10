@@ -41,7 +41,7 @@ export default {
   //   进入页面时加载数据
   mounted() {
     this.$axios
-      .get('/getBanList/', {
+      .get('/getSportList/', {
         params: {
           token: window.sessionStorage.getItem('token')
         }
